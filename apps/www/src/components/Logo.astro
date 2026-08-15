@@ -1,0 +1,12 @@
+---
+type Props = {
+  href?: string;
+};
+
+const { href = "/" } = Astro.props as Props;
+---
+
+<a class="brand-lockup" href={href} aria-label="CoWork home">
+  <span class="brand-lockup__mark" aria-hidden="true"></span>
+  <span class="brand-lockup__word">cowork</span>
+</a>

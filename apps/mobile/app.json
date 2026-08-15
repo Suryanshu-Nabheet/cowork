@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "CoWork",
+    "slug": "cowork",
+    "scheme": "cowork",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#050506"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      ["expo-notifications", { "icon": "./assets/notification-icon.png", "color": "#2965EC" }]
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.suryanshunabheet.cowork",
+      "icon": "./assets/icon.png",
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsLocalNetworking": true
+        }
+      }
+    },
+    "android": {
+      "package": "com.suryanshunabheet.cowork",
+      "icon": "./assets/icon.png",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "monochromeImage": "./assets/monochrome-icon.png",
+        "backgroundColor": "#2965EC"
+      }
+    },
+    "web": { "favicon": "./assets/favicon.png" }
+  }
+}

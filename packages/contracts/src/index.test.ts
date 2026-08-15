@@ -1,0 +1,25 @@
+import { describe, expect, it } from "vitest";
+import { appContract, CreateBotInput, ProductEventType } from "./index.js";
+
+describe("contracts", () => {
+  it("parses bot create input", () => {
+    const parsed = CreateBotInput.parse({ name: "Chief" });
+    expect(parsed.title).toBe("");
+    expect(parsed.notifyOnFinish).toBe(true);
+  });
+
+  it("exposes the product rpc surface", () => {
+    expect(appContract.models.beginOAuth).toBeTruthy();
+    expect(appContract.models.completeOAuth).toBeTruthy();
+    expect(appContract.bots.create).toBeTruthy();
+    expect(appContract.bots.remove).toBeTruthy();
+    expect(appContract.threads.subscribe).toBeTruthy();
+    expect(appContract.threads.stopSubagent).toBeTruthy();
+    expect(appContract.notifications.registerPush).toBeTruthy();
+    expect(ProductEventType.options).toContain("thread.message.created");
+    expect(ProductEventType.options).toContain("thread.subagent");
+    expect(ProductEventType.options).toContain("thread.tool");
+    expect(ProductEventType.options).toContain("run.cancelled");
+    expect(ProductEventType.options).toContain("bot.spawned");
+  });
+});

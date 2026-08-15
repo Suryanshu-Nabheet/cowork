@@ -1,0 +1,37 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { fetchGithubStars, formatStarCount } from "../github";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { GITHUB_URL } from "../site";
+
+const stars = await fetchGithubStars();
+const starsLabel = stars === null ? "Star" : formatStarCount(stars);
+---
+
+<BaseLayout
+  title="Privacy · CoWork"
+  description="How CoWork treats information on this marketing site."
+>
+  <div class="container">
+    <Header starsLabel={starsLabel} />
+    <main id="main" class="privacy-copy">
+      <h1>Privacy</h1>
+      <p>
+        This page is for the CoWork public site. The open-source product is self-hosted; we do
+        not operate your bots or see your model keys.
+      </p>
+      <ul>
+        <li>The site is static. It does not set an account cookie or require sign-in.</li>
+        <li>
+          GitHub star counts are fetched at build time from the public
+          <a href={GITHUB_URL}>Suryanshu-Nabheet/cowork</a> API.
+        </li>
+      </ul>
+      <p>
+        Questions: open an issue on <a href={GITHUB_URL}>GitHub</a>.
+      </p>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

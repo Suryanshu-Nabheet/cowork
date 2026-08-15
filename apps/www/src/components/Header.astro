@@ -1,0 +1,31 @@
+---
+import { DOCS_URL, GITHUB_URL } from "../site";
+import Button from "./Button.astro";
+import Logo from "./Logo.astro";
+
+type Props = {
+  starsLabel: string;
+};
+
+const { starsLabel } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="site-header__left">
+    <Logo />
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/#demo">Product</a>
+      <a href="/#roster">Bots</a>
+      <a href="/#selfhost">Self-host</a>
+      <a href="/#open-source">Open source</a>
+      <a href={DOCS_URL} target="_blank" rel="noreferrer">Docs</a>
+    </nav>
+  </div>
+  <div class="site-header__right">
+    <a class="star-pill" href={GITHUB_URL} target="_blank" rel="noreferrer">
+      <span aria-hidden="true">★</span>
+      <span>{starsLabel}</span>
+    </a>
+    <Button href={GITHUB_URL} size="sm" external>View on GitHub</Button>
+  </div>
+</header>

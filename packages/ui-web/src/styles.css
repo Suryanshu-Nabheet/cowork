@@ -1,0 +1,3 @@
+@import "@cowork/ui-tokens/css";
+
+@source "./**/*.{ts,tsx}";

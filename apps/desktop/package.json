@@ -1,0 +1,65 @@
+{
+  "name": "@cowork/desktop",
+  "productName": "CoWork",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "pnpm build && electron .",
+    "build": "tsc -p tsconfig.json && cp src/preload.cjs dist/preload.cjs",
+    "pack": "pnpm build && electron-builder --mac --win --linux",
+    "pack:dir": "pnpm build && electron-builder --dir",
+    "check": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@cowork/contracts": "workspace:*"
+  },
+  "devDependencies": {
+    "electron": "^37.3.1",
+    "electron-builder": "^26.0.12",
+    "typescript": "^5.9.2",
+    "vitest": "^4.1.10"
+  },
+  "build": {
+    "appId": "com.suryanshunabheet.cowork.desktop",
+    "productName": "CoWork",
+    "directories": {
+      "output": "out",
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "extraMetadata": {
+      "main": "dist/main.js"
+    },
+    "mac": {
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "icon": "assets/icon.png",
+      "target": [
+        "AppImage"
+      ]
+    }
+  },
+  "author": "Suryanshu Nabheet <suryanshunab@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Suryanshu-Nabheet/cowork.git"
+  }
+}

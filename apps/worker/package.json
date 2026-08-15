@@ -1,0 +1,32 @@
+{
+  "name": "@cowork/worker",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "check": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@cowork/adapter-kit": "workspace:*",
+    "@cowork/adapters": "workspace:*",
+    "@cowork/contracts": "workspace:*",
+    "@cowork/core": "workspace:*",
+    "@cowork/db": "workspace:*",
+    "@cowork/memory": "workspace:*",
+    "graphile-worker": "^0.17.3",
+    "pino": "^9.9.0",
+    "dotenv": "^17.2.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2",
+    "vitest": "^4.1.10"
+  },
+  "author": "Suryanshu Nabheet <suryanshunab@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Suryanshu-Nabheet/cowork.git"
+  }
+}
